@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vowel Finder</title>
+    <link rel="stylesheet" href="style.css" type="text/css">
+    
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Vowel Finder</h1>
+        <input id="userInput" placeholder="Enter your text..." type="text">
+        <button onclick="findVowels()">Check</button>
+        <div class="result" id="result"></div>
+    </div>
+
+    <footer>
+        <a href="https://github.com/reallvaibhav">reallvaibhav@github 2025</a>
+    </footer>
+
+    <script>
+        function findVowels() {
+            const input = document.getElementById('userInput').value;
+            const resultDiv = document.getElementById('result');
+
+            if (!input.trim()) {
+                resultDiv.textContent = "Please enter some text.";
+                return;
+            }
+
+            const vowels = ['a', 'e', 'i', 'o', 'u'];
+            const foundVowels = [];
+
+            for (const char of input.toLowerCase()) {
+                if (vowels.includes(char) && !foundVowels.includes(char)) {
+                    foundVowels.push(char);
+                }
+            }
+
+            if (foundVowels.length > 0) {
+                resultDiv.textContent = `Vowels found: ${foundVowels.join(', ')}`;
+            } else {
+                resultDiv.textContent = "No vowels found in the text.";
+            }
+        }
+    </script>
+</body>
+</html>
