@@ -5,12 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vowel Finder</title>
     <link rel="stylesheet" href="style.css" type="text/css">
-    
 </head>
 <body>
     <div class="container">
         <h1 class="heading">Vowel Finder</h1>
-        <input id="userInput" placeholder="Enter your text..." type="text">
+        <input id="userInput" placeholder="Enter your text..." type="text" onkeypress="handleKeyPress(event)">
         <button onclick="findVowels()">Check</button>
         <div class="result" id="result"></div>
     </div>
@@ -42,6 +41,12 @@
                 resultDiv.textContent = `Vowels found: ${foundVowels.join(', ')}`;
             } else {
                 resultDiv.textContent = "No vowels found in the text.";
+            }
+        }
+
+        function handleKeyPress(event) {
+            if (event.key === 'Enter') {
+                findVowels();
             }
         }
     </script>
